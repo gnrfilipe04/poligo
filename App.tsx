@@ -10,7 +10,7 @@ import {
 
 import AppLoading from 'expo-app-loading';
 import { NavigationContainer } from '@react-navigation/native';
-import { Routes } from './src/routes/routes';
+import  Routes  from './src/routes';
 
 
 export default function App() {
@@ -24,9 +24,7 @@ export default function App() {
     if(!fontsLoaded) return <AppLoading />
 
   return (
-    <NavigationContainer>
-        <Routes />
-    </NavigationContainer>
+    <Routes />
   );
 }
 

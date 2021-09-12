@@ -6,36 +6,27 @@ import { Dimensions } from 'react-native';
 import facebook from "../assets/facebook.png"
 import google from "../assets/google.png"
 import colors from "../styles/colors"
+import { useNavigation } from "@react-navigation/core";
+import layout from "../styles/layout";
 
 export function Login (){
 
-    const width = Dimensions.get('window').width;
-    const height = Dimensions.get('window').height;
-
-    const widthPercentageToDP = (widthPercent: string) => {
-        const screenWidth = Dimensions.get('window').width;
-        return PixelRatio.roundToNearestPixel(screenWidth * parseFloat(widthPercent) / 100);
-      };
-
-    const heightPercentageToDP = (heightPercent: string) => {
-        const screenHeight = Dimensions.get('window').height;
-        return PixelRatio.roundToNearestPixel(screenHeight * parseFloat(heightPercent) / 100);
-    };
+    const navigation = useNavigation()
 
     return (
         <SafeAreaView style={styles.container}>
-            <View style={[styles.containerHeader, {height: heightPercentageToDP('45%')}]}>
+            <View style={[styles.containerHeader, {height: layout.heightPercentageToDP('45%')}]}>
                 <Image 
                 source={woman} 
                 style={{
-                    width: widthPercentageToDP('70%'), 
-                    height: heightPercentageToDP('50%'),
+                    width: layout.widthPercentageToDP('70%'), 
+                    height: layout.heightPercentageToDP('50%'),
                 }}
                     
                 />
             </View>
             <Text style={[styles.text, {
-                fontSize: widthPercentageToDP('7%')
+                fontSize: layout.widthPercentageToDP('7%')
             }]}>
                 Acompanhe quem{"\n"}
                 decide <Text style={styles.textBold}>o seu futuro</Text>
@@ -48,6 +39,7 @@ export function Login (){
                 icon={facebook}
                 title="Entrar com facebook"
                 border={colors.white}
+                onPress={() => navigation.navigate("Home")}
                 />
                 <ButtonIcon 
                 background={colors.white}
