@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Image, Text, View, StyleSheet } from "react-native";
+import { ScrollView } from "react-native-gesture-handler";
 import { Header } from "../components/Header";
 import { api } from "../services/api";
+import colors from "../styles/colors";
+import fonts from "../styles/fonts";
+import layout from "../styles/layout";
 
 interface DeputiesProps {
     dados: [
@@ -28,10 +32,14 @@ interface DeputiesProps {
 
 export function Home(){
     const [deputies, setDeputies] = useState({} as DeputiesProps)
+    const [ready, setReady] = useState(false)
 
     async function getDeputies(){
+        console.log('carregando')
         const response = await api.get("deputados")
         setDeputies(response.data)
+        console.log('carregou')
+        setReady(true)
     }
 
     useEffect(() => {
@@ -41,11 +49,37 @@ export function Home(){
     return(
         <>
             <Header />
-            
-            {deputies?.dados?.map(item => (
+            <ScrollView>
+            {ready && deputies?.dados?.map(item => (
                 
-                <Image key={item.id} style={styles.tinyLogo} source={{uri: item.urlFoto}} />
+                <View key={item.id} style={[styles.container, {
+                    marginVertical: layout.heightPercentageToDP("1.5%"),
+                    marginHorizontal: layout.heightPercentageToDP("1.5%"),
+                    padding: layout.heightPercentageToDP("1.5%"),
+                }]}>
+                    <Image style={styles.tinyLogo} source={{uri: item.urlFoto}} resizeMode="stretch"/>
+                    <View style={styles.contentContainer}>
+                        <View style={[styles.nameContainer, {
+                            height: layout.heightPercentageToDP("5%"),
+                            paddingHorizontal: layout.heightPercentageToDP("2%"),
+                            width: layout.widthPercentageToDP("73%"),
+                            maxWidth: layout.widthPercentageToDP("73%")
+                        }]}>
+                            <Text style={[styles.name, {
+                                fontSize: layout.widthPercentageToDP("5%"),
+                                maxWidth: layout.widthPercentageToDP("50%")
+                            }]}>{item.nome}</Text>
+                            <Text style={[styles.party, {
+                                fontSize: layout.widthPercentageToDP("4%"),
+                            }]}>
+                                {item.siglaPartido.length > 5 ? item.siglaPartido.substr(0, 3) + '.' : item.siglaPartido}
+                                
+                            </Text>
+                        </View>
+                    </View>
+                </View>
             ))}
+            </ScrollView>
 
         </>
     )
@@ -53,14 +87,29 @@ export function Home(){
 
 const styles = StyleSheet.create({
     container: {
-      paddingTop: 50,
+      backgroundColor: "#e9e8f6",
+      borderRadius: 4,
+      flexDirection: "row",
+    },
+    contentContainer: {
+        flexDirection: "column"
     },
     tinyLogo: {
-      width: 50,
-      height: 50,
+      width: 70,
+      height: 85,
+      borderRadius: 4,
     },
-    logo: {
-      width: 66,
-      height: 58,
+    nameContainer: {
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "space-between"
     },
+    name: {
+      color: colors.gray,
+      fontFamily: fonts.bold  
+    },
+    party: {
+      color: "#3af177",
+      fontFamily: fonts.bold,
+    }
   });
