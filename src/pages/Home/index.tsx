@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Image, Text, View, StyleSheet } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
-import { Header } from "../components/Header";
-import { api } from "../services/api";
-import colors from "../styles/colors";
-import fonts from "../styles/fonts";
-import layout from "../styles/layout";
+import { Header } from "../../components/Header";
+import { Search } from "../../components/Search";
+import { api } from "../../services/api";
+import colors from "../../styles/colors";
+import fonts from "../../styles/fonts";
+import layout from "../../styles/layout";
 
 interface DeputiesProps {
     dados: [
@@ -49,7 +50,8 @@ export function Home(){
     return(
         <>
             <Header />
-            <ScrollView>
+            <Search />
+            <ScrollView style={{marginTop: 40}}>
             {ready && deputies?.dados?.map(item => (
                 
                 <View key={item.id} style={[styles.container, {

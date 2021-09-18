@@ -1,8 +1,10 @@
 import React from "react";
-import { View, StyleSheet, Text } from "react-native";
-import colors from "../styles/colors";
-import fonts from "../styles/fonts";
-import layout from "../styles/layout";
+import { View, StyleSheet, Text, Image } from "react-native";
+import Avatar from "../../assets/perfil.jpg"
+import colors from "../../styles/colors";
+import fonts from "../../styles/fonts";
+import layout from "../../styles/layout";
+import { Search } from "../Search";
 
 export function Header(){
     return (
@@ -20,7 +22,7 @@ export function Header(){
                     }}>Faça sua parte e fiscalize</Text>
                 </Text>
 
-                <Text>Foto</Text>
+                <Image source={Avatar} style={styles.avatar}/>
             </View>
         </View>
     )
@@ -42,5 +44,10 @@ const styles = StyleSheet.create({
     },
     subTitle: {
         color: colors.white
+    },
+    avatar : {
+        width: 70,
+        height: 70,
+        borderRadius: 10
     }
 })

@@ -7,23 +7,24 @@ import {
     Text,
     StyleSheet
     } from "react-native";
-import colors from "../styles/colors";
+import colors from "../../styles/colors";
 
 type ButtonProps = TouchableOpacityProps & {
     title: string;
     icon: any;
     background: string;
     color: string;
-    border: string;
+    border?: string;
+    divisor: string;
 }
 
-export function ButtonIcon({ title, icon, background, color, border, ...rest }: ButtonProps){
+export function ButtonIcon({ title, icon, background, color, border, divisor, ...rest }: ButtonProps){
     return (
         <TouchableOpacity 
-        style={[styles.container, {backgroundColor: background}]} 
+        style={[styles.container, {backgroundColor: background, borderWidth: border ? 1 : 0, borderColor: border}]} 
         {...rest}
         >
-            <View style={[styles.iconWrapper, {borderColor: border}]}>
+            <View style={[styles.iconWrapper, {borderColor: divisor}]}>
                 <Image source={icon}/>
             </View>
 

@@ -1,13 +1,12 @@
 import React from "react"
 import { StyleSheet, Text, View, Image, SafeAreaView, PixelRatio } from "react-native"
-import  woman  from "../assets/mulher-login.png"
-import { ButtonIcon } from "../components/Button"
-import { Dimensions } from 'react-native';
-import facebook from "../assets/facebook.png"
-import google from "../assets/google.png"
-import colors from "../styles/colors"
+import  woman  from "../../assets/mulher-login.png"
+import { ButtonIcon } from "../../components/Button"
+import facebook from "../../assets/facebook.png"
+import google from "../../assets/google.png"
+import colors from "../../styles/colors"
 import { useNavigation } from "@react-navigation/core";
-import layout from "../styles/layout";
+import layout from "../../styles/layout";
 
 export function Login (){
 
@@ -38,7 +37,7 @@ export function Login (){
                 color={colors.white}
                 icon={facebook}
                 title="Entrar com facebook"
-                border={colors.white}
+                divisor={colors.white}
                 onPress={() => navigation.navigate("Home")}
                 />
                 <ButtonIcon 
@@ -46,6 +45,7 @@ export function Login (){
                 color={colors.gray}
                 icon={google}
                 title="Entrar com google"
+                divisor='#b8b7b9'
                 border='#b8b7b9'
                 />
             </View>
