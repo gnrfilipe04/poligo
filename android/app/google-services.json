@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "34121371148",
+    "project_id": "poligo-7762f",
+    "storage_bucket": "poligo-7762f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:34121371148:android:16706698d18f671840e829",
+        "android_client_info": {
+          "package_name": "com.example.poligo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "34121371148-qac7l9lq1kdjgq2mu08o58i8uqvmua19.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.poligo",
+            "certificate_hash": "24527e3c845e86def179eea956c8194c27f1ff52"
+          }
+        },
+        {
+          "client_id": "34121371148-0ev5tne869ubfapje2eb4qghpa5e8rjo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAeyie5cDDEWCjpH30GVPHG-UJqvLpmKiI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "34121371148-0ev5tne869ubfapje2eb4qghpa5e8rjo.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "34121371148-2cn9dh9eecvb4q77pelcp67mmmeb3t5p.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.poligo"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
